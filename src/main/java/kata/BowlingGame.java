@@ -15,12 +15,16 @@ public class BowlingGame {
             }
 
             if(currentChar == '/'){
-                finalScore += (10 - Character.getNumericValue(line.charAt(i-1)));
+                finalScore += pinsDroppedInSpare(line, i);
                 isSpare = true;
             }
         }
 
         return finalScore + bonusScore;
+    }
+
+    private int pinsDroppedInSpare(String line, int i) {
+        return 10 - Character.getNumericValue(line.charAt(i - 1));
     }
 
     private boolean isASimbol(char symbol) {
