@@ -20,4 +20,12 @@ public class BowlingGameShould {
         var result = bowlingGame.score("1");
         assertEquals(1, result);
     }
+
+    @Test
+    void  return_2_when_only_two_pin_thrown()
+    {
+        var bowlingGame = new BowlingGame();
+        var result = bowlingGame.score("2");
+        assertEquals(2, result);
+    }
 }
