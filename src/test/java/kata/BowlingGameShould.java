@@ -12,4 +12,12 @@ public class BowlingGameShould {
         var result = bowlingGame.score("-");
       assertEquals(0, result);
     }
+
+    @Test
+    void  return_1_when_only_one_pin_thrown()
+    {
+        var bowlingGame = new BowlingGame();
+        var result = bowlingGame.score("1");
+        assertEquals(1, result);
+    }
 }
