@@ -40,4 +40,13 @@ public class BowlingGameShould {
 
         assertEquals(2, result);
     }
+
+    @Test
+    void  return_3_when_only_three_pin_thrown_with_two_tries()
+    {
+        var bowlingGame = new BowlingGame();
+        var result = bowlingGame.score("21");
+
+        assertEquals(3, result);
+    }
 }
