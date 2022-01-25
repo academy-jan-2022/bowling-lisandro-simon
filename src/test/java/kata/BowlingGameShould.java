@@ -10,7 +10,8 @@ public class BowlingGameShould {
     {
         var bowlingGame = new BowlingGame();
         var result = bowlingGame.score("-");
-      assertEquals(0, result);
+
+        assertEquals(0, result);
     }
 
     @Test
@@ -18,6 +19,7 @@ public class BowlingGameShould {
     {
         var bowlingGame = new BowlingGame();
         var result = bowlingGame.score("1");
+
         assertEquals(1, result);
     }
 
@@ -26,6 +28,16 @@ public class BowlingGameShould {
     {
         var bowlingGame = new BowlingGame();
         var result = bowlingGame.score("2");
+
+        assertEquals(2, result);
+    }
+
+    @Test
+    void  return_2_when_only_two_pin_thrown_with_two_tries()
+    {
+        var bowlingGame = new BowlingGame();
+        var result = bowlingGame.score("2-");
+
         assertEquals(2, result);
     }
 }
