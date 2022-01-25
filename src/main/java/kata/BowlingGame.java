@@ -3,7 +3,6 @@ package kata;
 public class BowlingGame {
     public int score(String line) {
         int finalScore = 0;
-        int bonusScore = 0;
         boolean isSpare = false;
         int pipesCounter = 0;
 
@@ -11,20 +10,26 @@ public class BowlingGame {
             var currentChar = line.charAt(i);
             if(!isASimbol(currentChar)){
                 finalScore += Character.getNumericValue(currentChar);
-                if (pipesCounter< 2){
-                    bonusScore = isSpare ? bonusScore + Character.getNumericValue(currentChar) : bonusScore;
+                if (isRegularFrame(pipesCounter)){
+                    finalScore = isSpare ? finalScore + Character.getNumericValue(currentChar) : finalScore;
                     pipesCounter = 0;
                 }
                 isSpare = false;
             }
+
             if (currentChar == '|') pipesCounter ++;
+
             if(currentChar == '/'){
                 finalScore += pinsDroppedInSpare(line, i);
                 isSpare = true;
             }
         }
 
-        return finalScore + bonusScore;
+        return finalScore;
+    }
+
+    private boolean isRegularFrame(int pipesCounter) {
+        return pipesCounter < 2;
     }
 
     private int pinsDroppedInSpare(String line, int i) {
