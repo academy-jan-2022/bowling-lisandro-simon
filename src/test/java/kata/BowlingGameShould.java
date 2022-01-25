@@ -58,4 +58,13 @@ public class BowlingGameShould {
 
         assertEquals(90, result);
     }
+
+    @Test
+    void  return_100_for_the_given_line()
+    {
+        var bowlingGame = new BowlingGame();
+        var result = bowlingGame.score("9/|9-|9-|9-|9-|9-|9-|9-|9-|9-||");
+
+        assertEquals(100, result);
+    }
 }
