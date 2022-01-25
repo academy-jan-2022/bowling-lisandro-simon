@@ -5,7 +5,7 @@ public class BowlingGame {
         int finalScore = 0;
 
         for(var i = 0; i < line.length(); i++){
-            if(line.charAt(i) != '-') finalScore += Character.getNumericValue(line.charAt(i));
+            if(line.charAt(i) != '-' && line.charAt(i) != '|') finalScore += Character.getNumericValue(line.charAt(i));
         }
 
         return finalScore;
