@@ -8,9 +8,9 @@ public class BowlingGame {
 
         for(var i = 0; i < line.length(); i++){
             var currentChar = line.charAt(i);
-            if(!isASimbol(line.charAt(i))){
-                finalScore += Character.getNumericValue(line.charAt(i));
-                bonusScore = isSpare ? bonusScore + Character.getNumericValue(line.charAt(i)) : bonusScore;
+            if(!isASimbol(currentChar)){
+                finalScore += Character.getNumericValue(currentChar);
+                bonusScore = isSpare ? bonusScore + Character.getNumericValue(currentChar) : bonusScore;
                 isSpare = false;
             }
 
