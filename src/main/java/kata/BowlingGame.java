@@ -6,8 +6,10 @@ public class BowlingGame {
         boolean isSpare = false;
         int pipesCounter = 0;
 
+
         for(var i = 0; i < line.length(); i++){
             var currentThrow = line.charAt(i);
+
             if(!isASymbol(currentThrow)){
                 finalScore += Character.getNumericValue(currentThrow);
                 if (isRegularFrame(pipesCounter)){
@@ -22,6 +24,11 @@ public class BowlingGame {
             if(currentThrow == '/'){
                 finalScore += pinsDroppedInSpare(line, i);
                 isSpare = true;
+            }
+
+            if(currentThrow == 'X'){
+                finalScore += 10;
+                finalScore += (Character.getNumericValue(line.charAt(i + 2)) + Character.getNumericValue(line.charAt(i +3)));
             }
         }
 
@@ -39,6 +46,7 @@ public class BowlingGame {
     private boolean isASymbol(char symbol) {
         return symbol == '-'
             || symbol == '|'
-            || symbol == '/';
+            || symbol == '/'
+        || symbol == 'X';
     }
 }
