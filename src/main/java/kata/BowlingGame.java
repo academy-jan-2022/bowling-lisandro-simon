@@ -7,19 +7,19 @@ public class BowlingGame {
         int pipesCounter = 0;
 
         for(var i = 0; i < line.length(); i++){
-            var currentChar = line.charAt(i);
-            if(!isASimbol(currentChar)){
-                finalScore += Character.getNumericValue(currentChar);
+            var currentThrow = line.charAt(i);
+            if(!isASymbol(currentThrow)){
+                finalScore += Character.getNumericValue(currentThrow);
                 if (isRegularFrame(pipesCounter)){
-                    finalScore = isSpare ? finalScore + Character.getNumericValue(currentChar) : finalScore;
+                    finalScore = isSpare ? finalScore + Character.getNumericValue(currentThrow) : finalScore;
                     pipesCounter = 0;
                 }
                 isSpare = false;
             }
 
-            if (currentChar == '|') pipesCounter ++;
+            if (currentThrow == '|') pipesCounter ++;
 
-            if(currentChar == '/'){
+            if(currentThrow == '/'){
                 finalScore += pinsDroppedInSpare(line, i);
                 isSpare = true;
             }
@@ -36,7 +36,7 @@ public class BowlingGame {
         return 10 - Character.getNumericValue(line.charAt(i - 1));
     }
 
-    private boolean isASimbol(char symbol) {
+    private boolean isASymbol(char symbol) {
         return symbol == '-'
             || symbol == '|'
             || symbol == '/';
